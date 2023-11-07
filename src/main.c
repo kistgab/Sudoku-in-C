@@ -111,6 +111,28 @@ bool ehJogadaValidaNaLinha(int tabuleiro[][TAMANHO_TABULEIRO], Jogada jogada)
   return true;
 }
 
+bool ehJogadaValidaNaColuna(int tabuleiro[][TAMANHO_TABULEIRO], Jogada jogada)
+{
+  for (int i = 0; i < TAMANHO_TABULEIRO; i++)
+  {
+    if (tabuleiro[i][jogada.coluna] == jogada.valor)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool ehJogadaValidaNoQuadrante(int tabuleiro[][TAMANHO_TABULEIRO], Jogada jogada)
+{
+}
+
+bool ehJogadaValida(int tabuleiro[][TAMANHO_TABULEIRO], Jogada jogada)
+{
+  bool ehValida = ehJogadaValida(tabuleiro, jogada) && ehJogadaValidaNaColuna(tabuleiro, jogada) && ehJogadaValidaNoQuadrante(tabuleiro, jogada);
+  return ehValida;
+}
+
 int main()
 {
   int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
