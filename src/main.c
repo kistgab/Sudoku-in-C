@@ -99,6 +99,18 @@ void imprimirTabuleiro(int tabuleiro[][TAMANHO_TABULEIRO])
   }
 }
 
+bool ehJogadaValidaNaLinha(int tabuleiro[][TAMANHO_TABULEIRO], Jogada jogada)
+{
+  for (int i = 0; i < TAMANHO_TABULEIRO; i++)
+  {
+    if (tabuleiro[jogada.linha][i] == jogada.valor)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
 int main()
 {
   int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
